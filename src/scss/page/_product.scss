@@ -1,12 +1,17 @@
 .product__container {
   display: grid;
-  grid-template-columns: repeat(2, calc(50% - 12px));
+  grid-template-columns: 1fr;
   justify-items: center;
-  gap: 24px;
+  gap: 18px;
   padding: 40px 0;
 
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(2, calc(50% - 12px));
+    gap: 24px;
+  }
+
   @media (min-width: 992px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
   }
 
