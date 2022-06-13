@@ -28,7 +28,7 @@ const ProductPage = () => {
   }
 
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper py-5">
       <div className="d-flex justify-content-end mb-3">
         <Pagination
           showSizeChanger

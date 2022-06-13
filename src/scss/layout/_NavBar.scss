@@ -45,11 +45,14 @@ nav {
         -1px 1px 0 black;
       height: 100%;
       display: grid;
-      place-items: center;
+      place-items: center; 
+      @include custom-media(tablet) {
+        display: none;
+      }
     }
 
     @include custom-media(tablet) {
-      grid-template-columns: auto auto 1fr;
+      grid-template-columns: auto 1fr;
     }
 
     .bi-list {
@@ -71,8 +74,9 @@ nav {
       grid-template-columns: auto 1fr;
       align-items: center;
       background-color: $light-grey-color-1;
-      border-radius: 500px;
-      padding: 8px 12px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
       column-gap: 8px;
       margin-left: 20px;
 
@@ -81,15 +85,17 @@ nav {
         width: fit-content;
         padding: 8px;
         transition: all 0.3s ease;
+        margin-left: 8px;
 
         &.show {
           display: grid;
           position: fixed;
           z-index: 12;
           width: calc(100% - 48px);
-          top: 12px;
-          left: 24px;
-          right: 24px;
+          top: 42px;
+          right: 50%;
+          transform: translateX(50%);
+          border-radius: 500px;
 
           input {
             width: 100%;
@@ -209,7 +215,7 @@ nav {
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 16px;
+    column-gap: 16px;
     justify-self: end;
     position: relative;
 
@@ -252,6 +258,11 @@ nav {
 
       &.show {
         transform: scale(1, 1);
+      }
+
+      @include custom-media(tablet) {
+        width: 90vw;
+        right: calc(5vw - 20px);
       }
     }
   }
