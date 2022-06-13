@@ -54,7 +54,7 @@
       }
 
       .product-overlay {
-        transform: scale(1.1);
+        transform: scale(1.1, 1.075);
         opacity: 1;
       }
 
@@ -99,7 +99,8 @@
     z-index: -1;
     position: absolute;
     inset: 0;
-    box-shadow: -4px 20px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: -4px 20px 30px rgba(0, 0, 0, 0.1),
+    4px -15px 30px rgba(0, 0, 0, 0.05);
     background-color: #fff;
     border-radius: 5px;
   }
@@ -224,13 +225,4 @@
 
 .ant-pagination-item:hover {
   border-color: $primary;
-}
-
-.product-info {
-  width: 100%;
-}
-.product-info .product-title {
-  max-width: 100%;
-  display: -webkit-box;
-  
 }
