@@ -63,8 +63,6 @@ const AddressForm = () => {
         setAddressData(data);
         setCitySelectOptions(data);
       });
-
-    dispatch(authActions.loadAddress());
   }, [dispatch]);
 
   const setCitySelectOptions = (data) => {
