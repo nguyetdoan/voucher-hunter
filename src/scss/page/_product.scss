@@ -225,3 +225,12 @@
 .ant-pagination-item:hover {
   border-color: $primary;
 }
+
+.product-info {
+  width: 100%;
+}
+.product-info .product-title {
+  max-width: 100%;
+  display: -webkit-box;
+  
+}

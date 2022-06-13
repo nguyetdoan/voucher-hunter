@@ -16,7 +16,7 @@ const OrderSuccess = () => {
         loop
         style={{ height: '60vh', margin: '0 auto' }}
       />
-      <div className="text-center mt-5">
+      <div className="text-center my-5">
         <button className="btn btn-primary" onClick={handleReturn}>
           Return to home
         </button>

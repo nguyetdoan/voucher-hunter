@@ -4,7 +4,11 @@ import ListCart from "../components/Cart/ListCart";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { cart } = useSelector((state) => state.cart);
+  const { cart, loading } = useSelector((state) => state.cart);
+
+  if (loading) {
+    return <></>
+  }
 
   return (
     <section className="container d-block shopping-cart__container my-5">

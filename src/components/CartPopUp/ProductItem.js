@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import cartAction from "../../redux/actions/cartActions";
-const ProductItem = ({ images, price, title, quantity, _id }) => {
+const ProductItem = ({ images, price, name, quantity, _id }) => {
   const dispatch = useDispatch();
 
   const deleteItem = () => {
@@ -8,11 +8,11 @@ const ProductItem = ({ images, price, title, quantity, _id }) => {
   }
   return (
     <div className="product-info">
-      <div className="col-3 product-img">
+      <div className="product-img">
         <img src={images[0]} alt="" />
       </div>
-      <div>
-        <p>{title}</p>
+      <div className="w-100">
+        <p className="product-title">{name}</p>
         <p>
           {quantity} x {Intl.NumberFormat().format(price)} VND
         </p>

@@ -135,7 +135,7 @@ const AddressForm = () => {
               type="text"
             />
           </div>
-          <button className="submit-btn" onClick={isSubmitting}>
+          <button className="submit-btn" disabled={isSubmitting}>
             {loadingAddressForm ? (
               <div className="spinner-border" role="status">
                 <span className="visually-hidden">Loading...</span>

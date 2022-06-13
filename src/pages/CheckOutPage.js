@@ -25,7 +25,7 @@ const CheckOutPage = () => {
   }
   
   return (
-    <div className="page-wrapper checkout-page">
+    <div className="page-wrapper checkout-page my-5">
       <div className="billing-detail">
         <h4>Billing Detail</h4>
         <Collapse>
