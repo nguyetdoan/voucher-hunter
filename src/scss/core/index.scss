@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+/**
+* Make all elements from the DOM inherit from the parent box-sizing
+* Since `*` has a specificity of 0, it does not override the `html` value
+* making all elements inheriting from the root box-sizing value
+* See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0 auto;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+
+  li {
+    list-style: none;
+  }
+}
+
+a {
+  text-decoration: none !important;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.page-wrapper {
+  // >1920px
+  padding: 0 400px;
+
+  // 1441-1920px
+  @include custom-media(desktop-larger) {
+    padding: 0 160px;
+  }
+
+  // 1281-1440px
+  @include custom-media(desktop-large) {
+    padding: 0 128px;
+  }
+
+  // 1025-1280px
+  @include custom-media(desktop) {
+    padding: 0 64px;
+  }
+
+  @include custom-media(tablet-large) {
+    padding: 0 40px;
+  }
+
+  @include custom-media(mobile) {
+    padding: 0 24px;
+  }
+}
+
+.btn-primary {
+  color: #fff !important;
+}
+
+.d-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;  
+}
+
+@media (min-width: 992px) {
+  .d-grid-2 {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 28px;
+  }
+}
+
+.ant-pagination-item-active:hover {
+  border-color: $primary;
+}
+
+.btn-primary:hover {
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
