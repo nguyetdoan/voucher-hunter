@@ -47,12 +47,12 @@ nav {
       display: grid;
       place-items: center; 
       @include custom-media(tablet) {
-        display: none;
+        display: inline-block;
       }
     }
 
     @include custom-media(tablet) {
-      grid-template-columns: auto 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
 
     .bi-list {
@@ -74,8 +74,8 @@ nav {
       grid-template-columns: auto 1fr;
       align-items: center;
       background-color: $light-grey-color-1;
-      border-radius: 50%;
-      width: 40px;
+      border-radius: 20px;
+      width: auto;
       height: 40px;
       column-gap: 8px;
       margin-left: 20px;
@@ -125,6 +125,14 @@ nav {
       button {
         border: 0;
         background-color: transparent;
+
+        i.bi.bi-search-heart{
+          padding-left: 10px;
+
+          @include custom-media(tablet) {
+            padding: 0;
+          }
+        }
 
         i::before {
           color: $dark-grey;
