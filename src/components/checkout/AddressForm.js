@@ -41,7 +41,7 @@ const AddressForm = () => {
     if (addressData.length) {
       const city = addressData.find((city) => city.name === cityName);
       const options = [];
-
+      console.log("city Name", cityName)
       for (let district of city.districts) {
         options.push(district.name);
       }
@@ -50,6 +50,7 @@ const AddressForm = () => {
   }, [addressData]);
 
   useEffect(() => {
+    console.log("address", billingAddress)
     if (billingAddress) {
       setInitialValues(billingAddress);
       setDistrictSelectOptions(billingAddress.city)

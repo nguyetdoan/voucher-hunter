@@ -33,6 +33,10 @@ const CustomSelector = ({
   useEffect(() => {
     if (value) {
       setSelected(value)
+
+      if (name === "city") {
+        setDistrictSelectOptions(value)
+      }
     }
   }, [value, name, setDistrictSelectOptions])
 
