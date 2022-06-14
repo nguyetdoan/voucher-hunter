@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const SearchBar = () => {
   const [show, setShow] = useState(false);
 
   const toggleShowSearchBar = () => {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 992) {
       setShow((show) => !show);
     }
   };

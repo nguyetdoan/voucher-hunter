@@ -1,6 +1,6 @@
 nav {
   display: grid;
-  grid-template-columns: 30% 1fr 30%;
+  grid-template-columns: calc(50% - 150px) 300px calc(50% - 150px);
   align-items: center;
   justify-items: center;
   padding: 8px 20px;
@@ -46,19 +46,20 @@ nav {
       height: 100%;
       display: grid;
       place-items: center; 
-      @include custom-media(tablet) {
-        display: none;
+      @include custom-media(tablet-larger) {
+        display: inline-block;
       }
     }
 
-    @include custom-media(tablet) {
-      grid-template-columns: auto 1fr;
+    @include custom-media(tablet-larger) {
+      grid-template-columns: auto 1fr 1fr;
+      text-align: center;
     }
 
     .bi-list {
       display: none;
 
-      @include custom-media(tablet) {
+      @include custom-media(tablet-larger) {
         display: block;
       }
     }
@@ -75,15 +76,15 @@ nav {
       align-items: center;
       background-color: $light-grey-color-1;
       border-radius: 500px;
+      width: auto;
       height: 40px;
       column-gap: 8px;
       margin-left: 20px;
-      padding-left: 12px;
+      padding-left: 10px;
 
-      @include custom-media(tablet) {
+      @include custom-media(tablet-larger) {
         display: flex;
         width: 40px;
-        padding: 8px;
         transition: all 0.3s ease;
         margin-left: 8px;
         border-radius: 50%;
@@ -118,7 +119,7 @@ nav {
           outline: 0;
         }
 
-        @include custom-media(tablet) {
+        @include custom-media(tablet-larger) {
           width: 0;
         }
       }
@@ -126,6 +127,12 @@ nav {
       button {
         border: 0;
         background-color: transparent;
+
+        i.bi.bi-search-heart{
+          @include custom-media(tablet-larger) {
+            padding: 0;
+          }
+        }
 
         i::before {
           color: $dark-grey;
@@ -156,7 +163,7 @@ nav {
       z-index: -1;
     }
 
-    @include custom-media(tablet) {
+    @include custom-media(tablet-larger) {
       .menu {
         position: fixed;
         top: 0;
@@ -193,7 +200,7 @@ nav {
       }
 
       &.show {
-        @include custom-media(tablet) {
+        @include custom-media(tablet-larger) {
           .menu {
             transform: translateX(0);
           }
