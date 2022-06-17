@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const baseURL = "https://voucher-hunter.herokuapp.com/api"
-const baseURL = "http://localhost:8080/api";
+const baseURL = "https://voucher-hunter.herokuapp.com/api"
+// const baseURL = "http://localhost:8080/api";
 
 const API = {
   async loadUser() {
@@ -123,7 +123,6 @@ const API = {
   },
   async getAddress() {
     const response = await axios.get(`${baseURL}/address`);
-
     if (response.status !== 200) {
       throw new Error(response.data.msg);
     }
