@@ -1,7 +1,9 @@
 import { Badge, notification } from "antd";
+import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import cartAction from "../../redux/actions/cartActions";
+import productActions from "../../redux/actions/productAction";
 
 const ProductItem = ({
   name,
@@ -11,6 +13,7 @@ const ProductItem = ({
   discount,
   from,
   to,
+  isLoved,
   ...rest
 }) => {
   const navigate = useNavigate();
@@ -18,6 +21,29 @@ const ProductItem = ({
   const {user} = useSelector(state => state.auth)
   const todayTime = +new Date();
   let newPrice = price;
+  const heartContainerRef = useRef(null);
+  const heartIconRef = useRef(null)
+
+  const toggleHeart = () => {
+    if (user) {
+      dispatch(
+        productActions.toggleHeart({
+          productId: _id
+        })
+      );
+      heartContainerRef.current.classList.toggle("active-icon");
+      if (heartIconRef.current.classList.contains("bi-heart-fill")) {
+        heartIconRef.current.classList.remove("bi-heart-fill");
+        heartIconRef.current.classList.add("bi-heart")
+      } else {
+        heartIconRef.current.classList.remove("bi-heart");
+        heartIconRef.current.classList.add("bi-heart-fill")
+      }
+      return;
+    }
+
+    notification.error({message: "Please login first!"})
+  }
 
   const addToCart = () => {
     if (user) {
@@ -38,6 +64,7 @@ const ProductItem = ({
     }
     notification.error({message: "Please login first!"})
   };
+
   if (discount && +new Date(from) < todayTime && +new Date(to) > todayTime) {
     discount = discount.split("%")[0];
     newPrice = price - (price * discount) / 100;
@@ -51,7 +78,6 @@ const ProductItem = ({
           </Badge.Ribbon>
         )
       : ({children}) => <>{children}</>;
-
   return (
     <Wrapper>
       <div className="product-item">
@@ -72,8 +98,8 @@ const ProductItem = ({
             <div className="product-icon" onClick={addToCart}>
               <i className="bi bi-plus-circle"></i>
             </div>
-            <div className="product-icon">
-              <i className="bi bi-heart"></i>
+            <div className={`product-icon${isLoved ? " active-icon" : ""}`} ref={heartContainerRef} onClick={toggleHeart}>
+              <i className={`bi bi-heart${isLoved ? "-fill" : ""}`} ref={heartIconRef}></i>
             </div>
             <div className="product-icon">
               <i className="bi bi-eye"></i>

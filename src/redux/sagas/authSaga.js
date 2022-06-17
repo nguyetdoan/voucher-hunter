@@ -106,7 +106,6 @@ function* loadAddressWatcher() {
 }
 
 function* addAddressWorker({payload}) {
-  console.log(payload)
   try {
     const addressInfo = yield call(API.addAddress, payload);
     yield delay(500)

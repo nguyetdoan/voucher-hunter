@@ -11,7 +11,7 @@ const App = () => {
   const role = user ? "user" : "guest";
 
   useEffect(() => {
-    dispatch(authActions.loadUser());
+      dispatch(authActions.loadUser());
   }, [dispatch]);
 
   if (loading) {
@@ -35,7 +35,6 @@ const App = () => {
         {routes[role].withoutLayout.map((route, index) => (
           <Route key={`route-2--${index}`} path={route.path} element={<route.component />} />
         ))}
-        lfg;pkvdvfbkg.e
         <Route path="*" element={<>Not found</>} />
       </Routes>
     </BrowserRouter>

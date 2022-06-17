@@ -33,7 +33,7 @@ function* getCartWatcher() {
 function* addToCartWorker({payload}) {
   try {
     yield call(API.addToCart, payload);
-    yield put(cartAction.changeCart());
+    yield put(cartAction.getCart());
     notification.success({message: "Product added to cart!!"})
   } catch (err) {
     console.log(err);
@@ -47,7 +47,7 @@ function* addToCartWatcher() {
 function* deleteItemWorker({payload: id}) {
   try {
     yield call(API.deleteItem, id);
-    yield put(cartAction.changeCart());
+    yield put(cartAction.getCart());
   } catch (err) {
     console.log(err);
   }
@@ -60,7 +60,7 @@ function* deleteItemWatcher() {
 function* updateItemWorker({payload}) {
   try {
     yield call(API.updateItem, payload);
-    yield put(cartAction.changeCart());
+    yield put(cartAction.getCart());
   } catch (err) {
     console.log(err);
   }

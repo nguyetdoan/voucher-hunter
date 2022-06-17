@@ -103,10 +103,13 @@ const styleCart = {
 const Products = () => {
   const dispatch = useDispatch();
   const { list } = useSelector((state) => state.product);
+  const {user} = useSelector((state) => state.auth);
 
   useEffect(() => {
-    dispatch(productActions.loadProductList({ page: 1, size: 8 }));
-  }, [dispatch]);
+    if (user) {
+      dispatch(productActions.loadProductListByUser({ page: 1, size: 8 }));
+    } else dispatch(productActions.loadProductList({ page: 1, size: 8 }));
+  }, [dispatch, user]);
 
   return (
     <div className="page-wrapper mt-5">

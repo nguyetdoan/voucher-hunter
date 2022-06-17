@@ -1,7 +1,10 @@
 import {
-  CHANGE_PAGE, GET_PRODUCT_DETAIL,
+  CHANGE_PAGE,
+  GET_PRODUCT_DETAIL,
   GET_PRODUCT_LIST,
-  PRODUCT_CHANGE, SEARCH_PRODUCT, SORT_PAGE
+  PRODUCT_CHANGE,
+  SEARCH_PRODUCT,
+  SORT_PAGE
 } from "../actions/actionType";
 
 const initialState = {
@@ -47,30 +50,29 @@ const productReducer = (state = initialState, action) => {
       };
 
     case CHANGE_PAGE:
-
       return {
         ...state,
         page: action.payload.page,
         size: action.payload.size,
         changed: true,
-      }
+      };
 
     case SORT_PAGE:
-      const {sortBy, order} = action.payload
+      const { sortBy, order } = action.payload;
       return {
         ...state,
         sortBy,
         order,
-        changed: true
-      }
-    
+        changed: true,
+      };
+
     case SEARCH_PRODUCT:
       return {
         ...state,
         search: action.payload,
         page: 1,
-        changed: true
-      }
+        changed: true,
+      };
 
     default:
       return state;

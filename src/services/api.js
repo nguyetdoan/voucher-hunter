@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseURL = "https://voucher-hunter.herokuapp.com/api"
-// const baseURL = "http://localhost:8080/api";
+// const baseURL = "https://voucher-hunter.herokuapp.com/api"
+const baseURL = "http://localhost:8080/api";
 
 const API = {
   async loadUser() {
@@ -45,9 +45,25 @@ const API = {
 
     return response.data;
   },
-  async loadProduct({ page = 1, size, sortBy, order, search, gte, lte }) {
+  async loadProduct({ page = 1, size, sortBy, order, search, gte, lte, userId }) {
     const response = await axios.get(
       `${baseURL}/product?page=${page}${size ? `&size=${size}` : ""}${
+        sortBy ? `&sortBy=${sortBy}` : ""
+      }${order ? `&order=${order}` : ""}${search ? `&search=${search}` : ""}${
+        gte ? `&gte=${gte}` : ""
+      }${lte ? `&size=${lte}` : ""}`,
+      {id: userId}
+    );
+
+    if (response.status !== 200) {
+      throw new Error(response.data.msg);
+    }
+
+    return response.data;
+  },
+  async loadProductByUser({ page = 1, size, sortBy, order, search, gte, lte, userId }) {
+    const response = await axios.get(
+      `${baseURL}/product/user?page=${page}${size ? `&size=${size}` : ""}${
         sortBy ? `&sortBy=${sortBy}` : ""
       }${order ? `&order=${order}` : ""}${search ? `&search=${search}` : ""}${
         gte ? `&gte=${gte}` : ""
@@ -120,9 +136,17 @@ const API = {
     if (response.status !== 200) {
       throw new Error(response.data.msg);
     }
-    console.log(response.data);
     return response.data;
   },
+  async toggleHeart({productId, userId}) {
+    const response = await axios.post(`${baseURL}/heart`, {productId, userId});
+
+    if (response.status !== 200) {
+      throw new Error(response.data.msg);
+    }
+
+    return response.data;
+  }
 };
 
 export default API;

@@ -2,8 +2,8 @@ import {
   CHANGE_PAGE, GET_PRODUCT_DETAIL,
   GET_PRODUCT_LIST,
   LOAD_PRODUCT_DETAIL,
-  LOAD_PRODUCT_LIST,
-  PRODUCT_CHANGE, SEARCH_PRODUCT, SORT_PAGE
+  LOAD_PRODUCT_LIST, LOAD_PRODUCT_LIST_BY_USER, PRODUCT_CHANGE, SEARCH_PRODUCT, SORT_PAGE,
+  TOGGLE_HEART
 } from "./actionType";
 
 const productActions = {
@@ -12,6 +12,12 @@ const productActions = {
       type: LOAD_PRODUCT_LIST,
       payload: info,
     };
+  },
+  loadProductListByUser(info) {
+    return {
+      type: LOAD_PRODUCT_LIST_BY_USER,
+      payload: info,
+    }
   },
   getProductList(list) {
     return {
@@ -56,6 +62,18 @@ const productActions = {
       payload: keyword
     }
   },
+  toggleHeart(payload) {
+    return {
+      type: TOGGLE_HEART,
+      payload
+    }
+  },
+  changeHeart(productId) {
+    return {
+      type: SEARCH_PRODUCT,
+      payload: productId
+    }
+  }
 };
 
 export default productActions;

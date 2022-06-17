@@ -5,26 +5,52 @@ import ProductItem from "../components/product/ProductItem";
 import productAction from "../redux/actions/productAction";
 
 const ProductPage = () => {
-  const {list, loading, changed, page, size, search, sortBy, order, totalItems} = useSelector(state => state.product);
+  const {
+    list,
+    loading,
+    changed,
+    page,
+    size,
+    search,
+    sortBy,
+    order,
+    totalItems,
+  } = useSelector((state) => state.product);
+  const { user } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(productAction.loadProductList({page: 1, size: 10}))
-  }, [dispatch])
+    if (user) {
+      dispatch(productAction.loadProductListByUser({ page: 1, size: 10 }));
+    } else dispatch(productAction.loadProductList({ page: 1, size: 10 }));
+  }, [dispatch, user]);
 
   const onChange = (page, pageSize) => {
-    dispatch(productAction.changePage({page, size: pageSize}))
+    dispatch(productAction.changePage({ page, size: pageSize }));
   };
-
 
   useEffect(() => {
     if (changed) {
-      dispatch(productAction.loadProductList({page, size, search, sortBy, order}))
+      if (user) {
+        dispatch(
+          productAction.loadProductListByUser({
+            page,
+            size,
+            search,
+            sortBy,
+            order,
+          })
+        );
+      } else
+      dispatch(
+        productAction.loadProductList({ page, size, search, sortBy, order })
+      );
     }
-  }, [dispatch, changed, page, size, search, sortBy, order]);
+  }, [dispatch, changed, page, size, search, sortBy, order, user]);
 
   if (loading) {
-    return <></>
+    return <></>;
   }
 
   return (
@@ -39,7 +65,9 @@ const ProductPage = () => {
         />
       </div>
       <div className="product__container">
-      {list.map((props) => <ProductItem key={props._id} {...props} />)}
+        {list.map((props) => (
+          <ProductItem key={props._id} {...props} />
+        ))}
       </div>
       <div className="d-flex justify-content-end mb-3">
         <Pagination
@@ -51,7 +79,7 @@ const ProductPage = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductPage
+export default ProductPage;

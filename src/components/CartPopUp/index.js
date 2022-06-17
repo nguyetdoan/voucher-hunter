@@ -7,7 +7,7 @@ import ProductItem from "./ProductItem";
 
 const CartPopUp = ({ show, setShowCart }) => {
   const {user} = useSelector(state => state.auth)
-  const { cart, totalPrice, changed } = useSelector((state) => state.cart);
+  const { cart, totalPrice} = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const dispatch = useDispatch()
 
@@ -16,12 +16,6 @@ const CartPopUp = ({ show, setShowCart }) => {
       dispatch(cartAction.getCart())
     }
   }, [dispatch, user])
-
-  useEffect(() => {
-    if (changed) {
-      dispatch(cartAction.getCart())
-    }
-  }, [dispatch, changed])
 
   const handlePushCheckout = () => {
     navigate(`/checkout`);

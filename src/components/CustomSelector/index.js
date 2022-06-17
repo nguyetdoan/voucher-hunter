@@ -45,7 +45,6 @@ const CustomSelector = ({
     new Promise((resolve) => resolve(setShowOptions(true))).then(() =>
       inputRef.current.focus()
     );
-    console.log(showOptions);
     if (!isTouched) {
       setIsTouched(true);
     }
