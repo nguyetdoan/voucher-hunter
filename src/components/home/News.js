@@ -14,14 +14,12 @@ const News = () => {
             <Card>
               <Card.Img
                 variant="top"
-                src="https://cdn1.hoanghamobile.com/tin-tuc/wp-content/uploads/2020/03/nhung-smartphone-chup-anh-dep-1.jpg"
+                src="https://kynghiviet.vn/public/upload/Blog/2019/Thang12/Phu-quoc/du-lich-phu-quoc-kinh-nghiem-va-thong-tin-huu-ich.jpg?1578022748671"
               />
               <Card.Body>
-                <Card.Title>Card title</Card.Title>
+                <Card.Title>Phú quốc</Card.Title>
                 <Card.Text>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                  Thỏa sức khám phá thiên đường vui chơi giải trí VinWonders Phú Quốc – Công viên chủ đề đầu tiên tại Việt Nam và Vinpearl Safari Phú Quốc - công viên chăm sóc, bảo tồn động vật, vườn thú bán hoang dã đầu tiên tại Việt Nam
                 </Card.Text>
               </Card.Body>
             </Card>
