@@ -28,7 +28,21 @@ const News_router = () => {
                     </Card>
                 ))}
             </div> */}
-                <Card style={{ boxShadow: "-4px 20px 30px rgb(0 0 0 / 10%), 4px -15px 30px rgb(0 0 0 / 5%)", borderRadius: "10px", lineHeight: "40px" }}>
+                {data.list.map(item => (
+                    <Card key={item.id} style={{ boxShadow: "-4px 20px 30px rgb(0 0 0 / 10%), 4px -15px 30px rgb(0 0 0 / 5%)", borderRadius: "10px", lineHeight: "40px" }}>
+                        <img src={item.images[1]} alt="Paris" style={{ width: "100%", borderRadius: "10px", marginBottom: "10px" }} />
+                        <span style={{ color: " #bfbfbf" }}>DESIGN</span>
+                        <span style={{ color: " #bfbfbf", marginLeft: "10px" }}>INTERIOR</span>
+                        <h2 style={{ fontFamily: "Roboto", fontSize: "20px", fontWeight: "700" }}>Chương trình khuyến mãi đặc biệt</h2>
+                        <span>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeeUl9IZDN97pBQNgeunx6dD1df-4g7vkPFw&usqp=CAU" style={{ width: "30px", height: "30px", borderRadius: "50%" }}></img>
+                        </span>
+                        <span style={{ marginLeft: "10px", fontWeight: "500" }}>Sweethomy</span>
+                        <span style={{ marginLeft: "10px", color: " #bfbfbf" }}>2 hour ago</span>
+
+                    </Card>
+                ))}
+                {/* <Card style={{ boxShadow: "-4px 20px 30px rgb(0 0 0 / 10%), 4px -15px 30px rgb(0 0 0 / 5%)", borderRadius: "10px", width: "300px", height: "auto", lineHeight: "40px" }}>
                     <img src="https://anhdep123.com/hinh-thap-eiffel-dep-nhat/" alt="Paris" style={{ width: "100%", borderRadius: "10px", marginBottom: "10px" }} />
                     <span style={{ color: " #bfbfbf" }}>DESIGN</span>
                     <span style={{ color: " #bfbfbf", marginLeft: "10px" }}>INTERIOR</span>
@@ -111,19 +125,7 @@ const News_router = () => {
                     <span style={{ marginLeft: "10px", fontWeight: "500" }}>Sweethomy</span>
                     <span style={{ marginLeft: "10px", color: " #bfbfbf" }}>2 hour ago</span>
 
-                </Card>
-                <Card style={{ boxShadow: "-4px 20px 30px rgb(0 0 0 / 10%), 4px -15px 30px rgb(0 0 0 / 5%)", borderRadius: "10px", width: "300px", height: "auto", lineHeight: "40px" }}>
-                    <img src="https://anhdep123.com/hinh-thap-eiffel-dep-nhat/" alt="Paris" style={{ width: "100%", borderRadius: "10px", marginBottom: "10px" }} />
-                    <span style={{ color: " #bfbfbf" }}>DESIGN</span>
-                    <span style={{ color: " #bfbfbf", marginLeft: "10px" }}>INTERIOR</span>
-                    <h2 style={{ fontFamily: "Zapf Chancery, cursive", fontSize: "20px" }}>Chương trình khuyến mãi đặc biệt</h2>
-                    <span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeeUl9IZDN97pBQNgeunx6dD1df-4g7vkPFw&usqp=CAU" style={{ width: "30px", height: "30px", borderRadius: "50%" }}></img>
-                    </span>
-                    <span style={{ marginLeft: "10px", fontWeight: "500" }}>Sweethomy</span>
-                    <span style={{ marginLeft: "10px", color: " #bfbfbf" }}>2 hour ago</span>
-
-                </Card>
+                </Card> */}
 
             </div>
 
