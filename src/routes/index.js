@@ -8,13 +8,15 @@ import News_router from "../pages/News_router";
 import Productdetails from "../pages/Productdetails";
 import ProductPage from "../pages/ProductPage";
 import SignUp from "../pages/SignUp";
+import ProductDetail from "../components/product/ProductDetail";
+
 
 const guestRoutesWithLayout = [
   { path: "/", component: Home },
   { path: "/products", component: ProductPage },
   { path: "/news", component: News_router },
   { path: "/aboutus", component: AboutUs },
-  { path: "/product/:id", component: () => <p>Product detail</p> },
+  { path: "/product/:id", component: ProductDetail},
   { path: "/productdetail", component: Productdetails },
   { path: "/checkout", component: () => <Navigate to="/login" />},
   { path: "/cart", component: () => <Navigate to="/login" />}
@@ -32,7 +34,7 @@ const userRoutesWithLayout = [
   { path: "/products", component: ProductPage },
   { path: "/news", component: News_router },
   { path: "/aboutus", component: AboutUs },
-  { path: "/product/:id", component: Productdetails },
+  { path: "/product/:id", component: ProductDetail },
   { path: "/productdetail", component: Productdetails },
   { path: "/account", component: () => <p>Account</p> },
   { path: "/cart", component: Cart },

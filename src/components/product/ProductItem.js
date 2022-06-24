@@ -70,6 +70,8 @@ const ProductItem = ({
     newPrice = price - (price * discount) / 100;
   }
 
+  
+
   const Wrapper =
     newPrice !== price
       ? ({children}) => (
