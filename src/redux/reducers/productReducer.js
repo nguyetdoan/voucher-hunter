@@ -4,7 +4,7 @@ import {
   GET_PRODUCT_LIST,
   PRODUCT_CHANGE,
   SEARCH_PRODUCT,
-  SORT_PAGE
+  SORT_PAGE,
 } from "../actions/actionType";
 
 const initialState = {

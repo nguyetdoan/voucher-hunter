@@ -3,7 +3,7 @@ import {
   GET_PRODUCT_LIST,
   LOAD_PRODUCT_DETAIL,
   LOAD_PRODUCT_LIST, LOAD_PRODUCT_LIST_BY_USER, PRODUCT_CHANGE, SEARCH_PRODUCT, SORT_PAGE,
-  TOGGLE_HEART
+  TOGGLE_HEART,
 } from "./actionType";
 
 const productActions = {
@@ -37,13 +37,13 @@ const productActions = {
       payload: detail,
     };
   },
-  
+
   changeProduct() {
     return {
       type: PRODUCT_CHANGE,
     };
   },
-  
+
   changePage(payload) {
     return {
       type: CHANGE_PAGE,
