@@ -8,6 +8,7 @@ const ProductDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [Product, setProduct] = useState([]);
+    
 
     useEffect(() => {
         axios.get(`https://voucher-hunter.herokuapp.com/api/product/${id}`)
@@ -19,7 +20,7 @@ const ProductDetail = () => {
     return (
         <div className="details-container">
             <div className='details-container-left'>
-                {/* <img src={Product.images[0]} alt="" />   */}
+                {Product.images &&  <img src={Product.images[0]} alt="" />  }
             </div>
             <div className="details-container-right">
                 <h1>{Product.name}</h1>
